@@ -1,0 +1,6 @@
+numpy
+Pillow
+websockets
+torch
+readchar
+msvcrt

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RL Training Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #1e1e1e;
+            color: #ddd;
+            text-align: center;
+        }
+
+        canvas {
+            background: #2c2c2c;
+            margin: 30px auto;
+            display: block;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Training Metrics</h2>
+
+    <canvas id="scoreChart" width="800" height="350"></canvas>
+    <canvas id="lossChart" width="800" height="350"></canvas>
+    <canvas id="entropyChart" width="800" height="350"></canvas>
+
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('stats.json?cache=' + Date.now());
+            return response.json();
+        }
+
+        // Chart creators
+        function createLineChart(ctx, label, color) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: label, borderColor: color, data: [], fill: false }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    layout: {
+                        padding: { top: 30, bottom: 10, left: 20, right: 30 }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#ddd' },
+                            grid: { color: '#444' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#ddd' },
+                            grid: { color: '#444' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#ddd' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Create the three charts
+        const lossChart = createLineChart(document.getElementById('lossChart'), 'Loss', 'red');
+        const entropyChart = createLineChart(document.getElementById('entropyChart'), 'Entropy', 'orange');
+        const scoreChart = createLineChart(document.getElementById('scoreChart'), 'Score', 'lime');
+
+        async function refresh() {
+            const data = await fetchData();
+
+            lossChart.data.labels = data.episodes;
+            lossChart.data.datasets[0].data = data.loss;
+            lossChart.update();
+
+            entropyChart.data.labels = data.episodes;
+            entropyChart.data.datasets[0].data = data.entropy;
+            entropyChart.update();
+
+            scoreChart.data.labels = data.episodes;
+            scoreChart.data.datasets[0].data = data.score;
+            scoreChart.update();
+        }
+
+        setInterval(refresh, 10000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+    "LR": 2e-4,
+    "GAMMA": 0.97,
+    "LAMBDA": 0.97,
+    "CLIP_EPS": 0.1,
+    "ENTROPY_COEFF": 0.001,
+    "VALUE_COEFF": 0.5,
+    "UPDATE_EPOCHS": 8,
+    "HIDDEN_SIZES" : [128, 128],
+
+    "EPISODES" : 100000,
+    "BUFFER_SIZE" : 2048,
+    "NUM_STACK" : 4,
+
+    "LOAD_PATH" : "",
+    "SAVE_PATH" : "./.models/model-vec.mdl",
+    "BUFFER_LOAD_PATH": "./.models/bc-vec.dat",
+    "BUFFER_SAVE_PATH": "./.models/bc-vec.dat",
+
+    "DEVICE" : "cpu",
+
+    "NUM_ENVS": 3,
+    "URL": "http://localhost:5500/babylon-environments/Lunar-Lander/Environment.html"
+  }
+  

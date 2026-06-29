@@ -1,0 +1,10 @@
+{
+    "python.analysis.extraPaths": [
+        "./rl-trainers/src"
+    ],
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "terminal.integrated.shellIntegration.enabled": false
+}

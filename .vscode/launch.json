@@ -1,0 +1,83 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "single_env_vector",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/ppo/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./ppo/configs/ppo_config_vec_single_env.json",
+                "--trainer",
+                "vector"
+            ]
+        },
+        {
+            "name": "single_env_visual",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/ppo/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./PPO/Configs/ppo_config_vis_single_env.json",
+                "--trainer",
+                "visual"
+            ]
+        },
+        {
+            "name": "mult_env_vector",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/ppo/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./ppo/configs/ppo_config_vec_multi_env.json",
+                "--trainer",
+                "mult_env_vector"
+            ]
+        },
+        {
+            "name": "mult_env_visual",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/ppo/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./ppo/configs/ppo_config_vis_multi_env.json",
+                "--trainer",
+                "mult_env_visual"
+            ]
+        },
+        {
+            "name": "visual behavioral cloning",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/PPO/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./PPO/Configs/ppo_config_vis_single_env.json",
+                "--trainer",
+                "bc_vis"
+            ]
+        },
+        {
+            "name": "vector behavioral cloning",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/rl-trainers/PPO/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--config_path",
+                "./PPO/Configs/ppo_config_vec_single_env.json",
+                "--trainer",
+                "bc_vec"
+            ]
+        }
+    ]
+}
