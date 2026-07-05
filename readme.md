@@ -21,7 +21,7 @@
 
 ## RL-Babylon-Environments
 
-Environments can be found in the [RL-Babylon-Environments](./RL-Babylon-Environments/README.md) folder. Simply start a local server (for example using Live Server in VS Code), open your browser (recommended: Chrome), and navigate to the Environment.html file inside the desired environment folder.
+Environments can be found in the [RL-Babylon-Environments](./.environments/README.md) folder. Simply start a local server (for example using Live Server in VS Code), open your browser (recommended: Chrome), and navigate to the Environment.html file inside the desired environment folder.
 
 Environments:
 

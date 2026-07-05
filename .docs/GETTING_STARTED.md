@@ -19,7 +19,7 @@ This guide walks you through running the communicator tests and the PPO RL train
 
 The Babylon.js environments must be served via a local web server.
 
-1. Open `RL-Babylon-Environments` in VS Code
+1. Open `RL-Babylon-Environments` located in the **.environments** folder in VS Code
 2. Install the **Live Server** extension (if not already installed)
 3. Right-click on any `.html` file in the environment folder and select **"Open with Live Server"**
    - The server will start on `http://localhost:5500`
