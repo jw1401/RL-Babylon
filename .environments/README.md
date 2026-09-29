@@ -1,39 +1,29 @@
-# RL-Babylon-Environments
+# Babylon.js environments
 
-![RL-Babylon](./.docs/rl-babylon.jpg)
+This directory contains the browser environments and shared Babylon.js support files used by RL-Babylon. Serve this directory over HTTP so browser pages can load their scripts and assets.
 
-**BabylonEnv** handles communication between a Reinforcement Learning (RL) agent and a Babylon.js environment. It supports both **numerical states** and **visual observations (pixel frames)**, allowing seamless integration with RL algorithms.
+From the repository root, a simple local server can be started with:
 
-## Features
+```bash
+python -m http.server 5500 --directory .environments
+```
 
-- Full WebSocket communication with Babylon.js  
-- Support for visual observations (pixel frames)  
-- Gym-like interface: `init()`, `reset()`, `step(action)`  
-- Easy integration into RL pipelines  
-- Offers 7 Babylon.js environments - ready for training with RL algorithms like PPO or SAC
+Then open an environment page, for example:
 
-## Get started
+```text
+http://localhost:5500/babylon-environments/Cube-Ball/Vector-Obs/Environment.html
+```
 
-Simply clone the repository, start a local server (for example using Live Server in VS Code), open your browser (recommended: Chrome), and navigate to the Environment.html file inside the desired environment folder.
+## Included environments
 
-Or simply run `python -m http.server 5500` in the RL-Babylon-Environments folder
+- `Cube-Ball/Vector-Obs` — vector observations
+- `Cube-Ball/Visual-Obs` — image observations
+- `Cube-Ball/Continous-SAC-Demo` — continuous-action demo used by the current SAC entry point
+- `Cube-Ball/Blender-Demo`
+- `Cart-Pole`
+- `Balancing-Ball`
+- `Lunar-Lander`
 
-Go to [RL-BABYLON](../readme.md) where you can find the python trainers and follow instructions to start training. It has code for PPO and SAC trainers. You can train the environments of this repository.
+To train, start the appropriate Python trainer from `rl-trainers` after starting the static server. The browser environment communicates with the trainer using the project's WebSocket/BSON protocol. See the [Getting Started guide](../.docs/GETTING_STARTED.md) for trainer commands and compatibility details.
 
-Study the environments to see how you can build an environment on your own. You must add a scene (setupScene) with the agent and the world it interacts with. Then you have to code the resteEnv and stepEnv methods.
-
-## Example Environments
-
-- Cube-Ball (Vector-Obs)
-- Cube-Ball (Visual-Obs)
-- Cube-Ball (Continous-SAC-Demo)
-- Cube-Ball (Blender-Demo)
-- Cart-Pole (Vector-Obs)
-- Balancing-Ball (Vector-Obs)
-- Lunar-Lander
-
-## ToDo
-
-- More environments
-- Generate docs
-
+When creating an environment, implement the scene setup and the reset/step behavior, and return data in the protocol format expected by the Python client. Existing pages and scripts in `babylon-environments/` and `lib/` are the practical references.

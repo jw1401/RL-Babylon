@@ -1,6 +1,6 @@
 numpy
 Pillow
 websockets
+pymongo
 torch
 readchar
-msvcrt

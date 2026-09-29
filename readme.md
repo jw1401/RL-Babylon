@@ -12,20 +12,21 @@
 
 ## Getting started
 
-- [Getting Started](.docs/GETTING_STARTED.md)
+- [Getting Started](.docs/GETTING_STARTED.md) — setup, launch commands, configuration, and known limitations.
 
 ## Trainers
 
 - [PPO](./rl-trainers/ppo/ppo.md)
 - [SAC](./rl-trainers/sac/sac.md)
 
-## RL-Babylon-Environments
+## Environments
 
-RL-Babylon-Environments can be found in the [.environments](./.environments/README.md) folder. Simply start a local server (for example using Live Server in VS Code), open your browser (recommended: Chrome), and navigate to the Environment.html file inside the desired environment folder.
+The Babylon.js environments and their shared browser libraries are in [.environments](./.environments/README.md). Serve that directory locally, then connect a PPO or SAC trainer over WebSockets. See the [Getting Started guide](.docs/GETTING_STARTED.md) for exact commands and current compatibility notes.
 
-Environments:
+Environment pages currently included:
 
- - Simple Navigation Vector (vector obs)
- - Simple Navigation Visual (visual obs)
- - Cart Pole (vector obs)
- - Balancing Ball (vector obs)
+ - Cube-Ball (vector and visual observations)
+ - Cube-Ball continuous-control demo (SAC)
+ - Cart Pole
+ - Balancing Ball
+ - Lunar Lander
